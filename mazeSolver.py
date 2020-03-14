@@ -78,6 +78,13 @@ class DFS:
                 return
             self.DFS(neighbour)
 
+class Astar:
+    def __init__(self, adjList, destination):
+        pass
+
+    def Astar(self, node):
+        pass
+
 def pathTracer(solution, graph):
     solutionRev=solution[::-1]
 
