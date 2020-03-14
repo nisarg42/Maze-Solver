@@ -31,5 +31,5 @@ if __name__ == '__main__':
             astar=Astar(graph, numberDict[checkPoints[1]])
             astar.Astar(numberDict[checkPoints[0]])
             path=pathTracer(astar.solution, graph)
-        maze2disp(maze, path, numberDict)
+        maze2disp(maze, path, numberDict, checkPoints)
         continueSolver=exitMenu(10,10)

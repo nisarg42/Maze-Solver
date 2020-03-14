@@ -21,6 +21,11 @@ def disp2maze(widthMaze, heightMaze):
     done=False
     clock=pygame.time.Clock()
 
+    font=pygame.font.Font('freesansbold.ttf', 32)
+    NEXT=font.render('NEXT', True, RED, WHITE)
+    NEXTRect=NEXT.get_rect()
+    NEXTRect.center=(5+widthMaze*55+47.5,32.5)
+
     maze=[[0 for i in range(widthMaze)] for j in range(heightMaze)]
     numberDict=mazeNumbering(maze)
 
@@ -37,16 +42,17 @@ def disp2maze(widthMaze, heightMaze):
         for i in range(heightMaze):
             for j in range(widthMaze):
                 if((i,j) in obstacles):
-                    pygame.draw.rect(screen, RED, [5+j*(55), 5+i*(55), 50, 50], 2)
+                    pygame.draw.rect(screen, RED, [5+j*(55), 5+i*(55), 50, 50], 0)
                 else:
                     pygame.draw.rect(screen, BLACK, [5+j*(55), 5+i*(55), 50, 50], 2)
 
                 if(len(checkPoints)>0):
                     for checkPoint in checkPoints:
-                        pygame.draw.rect(screen, PINK, [5+checkPoint[1]*(55), 5+checkPoint[0]*(55), 50, 50], 2)
+                        pygame.draw.rect(screen, PINK, [5+checkPoint[1]*(55), 5+checkPoint[0]*(55), 50, 50], 0)
 
 
         pygame.draw.rect(screen, BLUE, [5+widthMaze*(55), 5, 95, 50], 2)
+        screen.blit(NEXT, NEXTRect)
 
         for event in events:
             if pygame.mouse.get_pressed()==(1,0,0):
