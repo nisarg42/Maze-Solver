@@ -28,6 +28,7 @@ class BFS:
         self.queue=[]
         self.visited=[0 for i in range(vertexNum)]
         self.solution=[]
+        self.iterSolution=[]
         self.destination=destination
 
     def enqueue(self, value, queue):
@@ -46,6 +47,7 @@ class BFS:
         self.solution.append(node)
 
         neighbours=self.graph[node]
+        self.iterSolution.append(neighbours)
         # temp=sorted(neighbours)
         for neighbour in neighbours:
             self.enqueue(neighbour, self.queue)

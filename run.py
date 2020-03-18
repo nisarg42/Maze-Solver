@@ -23,6 +23,7 @@ if __name__ == '__main__':
             bfs=BFS(graph, numberDict[checkPoints[1]])
             bfs.BFS(numberDict[checkPoints[0]])
             path=pathTracer(bfs.solution, graph)
+            # print(bfs.iterSolution)
         elif(algo=='DFS'):
             dfs=DFS(graph, numberDict[checkPoints[1]])
             dfs.DFS(numberDict[checkPoints[0]])
