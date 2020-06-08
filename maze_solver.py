@@ -1,32 +1,32 @@
-def maze2graph(maze, numberDict):
-    graph=[[] for i in numberDict]
+def maze2graph(maze, number_dict):
+    graph=[[] for i in number_dict]
     counter=0
     for i in range(len(maze)):
         for j in range(len(maze[i])):
             if(i+1<=len(maze)-1):
                 if(maze[i+1][j]==' '):
-                    graph[numberDict[(i,j)]].append(numberDict[(i+1,j)])
+                    graph[number_dict[(i,j)]].append(number_dict[(i+1,j)])
             if(i-1>=0):
                 if(maze[i-1][j]==' '):
-                    graph[numberDict[(i,j)]].append(numberDict[(i-1,j)])
+                    graph[number_dict[(i,j)]].append(number_dict[(i-1,j)])
             if(j+1<=len(maze[0])-1):
                 if(maze[i][j+1]==' '):
-                    graph[numberDict[(i,j)]].append(numberDict[(i,j+1)])
+                    graph[number_dict[(i,j)]].append(number_dict[(i,j+1)])
             if(j-1>=0):
                 if(maze[i][j-1]==' '):
-                    graph[numberDict[(i,j)]].append(numberDict[(i,j-1)])
+                    graph[number_dict[(i,j)]].append(number_dict[(i,j-1)])
 
             counter+=1
 
     return graph
 
 class BFS:
-    def __init__(self, adjList, destination):
-        self.graph=adjList
+    def __init__(self, adj_list, destination):
+        self.graph=adj_list
 
-        vertexNum=len(adjList)
+        vertex_num=len(adj_list)
         self.queue=[]
-        self.visited=[0 for i in range(vertexNum)]
+        self.visited=[0 for i in range(vertex_num)]
         self.solution=[]
         self.iterSolution=[]
         self.destination=destination
@@ -59,11 +59,11 @@ class BFS:
             self.BFS(newNode)
 
 class DFS:
-    def __init__(self, adjList, destination):
-        self.graph=adjList
+    def __init__(self, adj_list, destination):
+        self.graph=adj_list
 
-        vertexNum=len(adjList)
-        self.visited=[0 for i in range(vertexNum)]
+        vertex_num=len(adj_list)
+        self.visited=[0 for i in range(vertex_num)]
         self.solution=[]
         self.destination=destination
 
@@ -81,19 +81,19 @@ class DFS:
             self.DFS(neighbour)
 
 class Astar:
-    def __init__(self, adjList, destination):
+    def __init__(self, adj_list, destination):
         pass
 
     def Astar(self, node):
         pass
 
-def pathTracer(solution, graph):
-    solutionRev=solution[::-1]
+def path_tracer(solution, graph):
+    solution_rev=solution[::-1]
 
     path=[]
-    path.append(solutionRev[0])
-    for i in range(1,len(solutionRev)):
-        if(solutionRev[i] in graph[path[-1]]):
-            path.append(solutionRev[i])
+    path.append(solution_rev[0])
+    for i in range(1,len(solution_rev)):
+        if(solution_rev[i] in graph[path[-1]]):
+            path.append(solution_rev[i])
 
     return path[::-1]

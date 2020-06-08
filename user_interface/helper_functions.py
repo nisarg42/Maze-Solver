@@ -1,31 +1,34 @@
 import copy
 
-def getKey(val, my_dict):
+
+def get_key(val, my_dict):
     for key, value in my_dict.items():
         if val == value:
             return key
 
-def mazeNumbering(maze):
-    numberDict={
+
+def maze_numbering(maze):
+    number_dict = {
 
     }
 
-    counter=0
+    counter = 0
     for i in range(len(maze)):
         for j in range(len(maze[i])):
-            numberDict[(i,j)]=counter
-            counter+=1
+            number_dict[(i, j)] = counter
+            counter += 1
 
-    return numberDict
+    return number_dict
 
-def outputGraph(maze, solution):
-    output=copy.deepcopy(maze)
-    counter=0
+
+def output_graph(maze, solution):
+    output = copy.deepcopy(maze)
+    counter = 0
     for i in range(len(maze)):
         for j in range(len(maze[i])):
             if(counter in solution):
-                output[i][j]='@'
+                output[i][j] = '@'
                 # print(counter)
-            counter+=1
+            counter += 1
 
     return output
